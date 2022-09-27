@@ -1,0 +1,15 @@
+@import url("../variables.css");
+
+.copyright {
+    text-align: center;
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.7em;
+}
+
+.footer-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark-purple);
+}

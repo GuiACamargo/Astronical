@@ -1,0 +1,98 @@
+@import url("../variables.css");
+/* 
+font-family: 'Major Mono Display', monospace;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto Mono', monospace; 
+*/
+
+.top-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-search {
+    margin-bottom: 30px;
+    width: 90%;
+}
+
+.create {
+    font-family: "Major Mono Display", monospace;
+    font-weight: bold;
+    margin: auto;
+    background-color: var(--mediumlight-purple);
+    margin-bottom: 30px;
+}
+
+.create:hover {
+    background-color: var(--dark-purple);
+}
+
+.all-users-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.all-users-title {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-family: "Major Mono Display", monospace;
+    font-size: 1.6em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.title-users-color {
+    color: var(--mediumlight-purple);
+}
+
+.search {
+    max-width: 80vw;
+    margin: auto;
+    display: inline;
+}
+
+.table,
+.paginator {
+    margin: auto;
+    width: 80vw;
+}
+
+.header {
+    color: var(--light-orange);
+    font-size: 1.1em;
+    padding-top: 15px;
+}
+
+.id {
+    color: var(--dark-orange);
+}
+
+.delete-button {
+    background-color: rgb(189, 3, 3);
+    margin: 7px auto auto auto;
+}
+
+.delete-button:hover {
+    background-color: rgb(153, 4, 4);
+}
+
+.table {
+    font-family: "Roboto Mono", monospace;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.card {
+    background-color: rgb(157, 78, 221, 0.4);
+    margin: auto auto 40px auto;
+    max-width: 80vw;
+}

@@ -1,0 +1,36 @@
+@import url("../variables.css");
+/* 
+font-family: 'Major Mono Display', monospace;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto Mono', monospace; 
+*/
+
+.title,
+.content,
+.button,
+.cancel {
+    font-family: "Roboto Mono", monospace;
+}
+
+.title span {
+    font-weight: bold;
+    color: var(--dark-orange);
+    font-family: "Major Mono Display", monospace;
+}
+
+.button {
+    background-color: rgb(150, 3, 3);
+}
+
+.button:hover {
+    background-color: rgb(97, 3, 3);
+}
+
+.cancel {
+    color: black;
+    background-color: rgb(153, 153, 153);
+}
+
+.cancel:hover {
+    background-color: rgb(126, 126, 126);
+}

@@ -1,0 +1,83 @@
+@import url("../variables.css");
+/* 
+font-family: 'Major Mono Display', monospace;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto Mono', monospace; 
+*/
+
+.main-card {
+    border-radius: 30px;
+    background-color: rgb(245, 27, 245, 0.4);
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    max-width: 80vw;
+    margin: 30px auto auto auto;
+}
+
+.title,
+.subtitle {
+    font-family: "Roboto Mono", monospace;
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    color: var(--light-orange);
+}
+
+.submit-button {
+    color: black;
+    font-weight: bold;
+    font-family: "Major Mono Display", monospace;
+    background-color: var(--light-orange);
+    transition: 0.5s;
+}
+
+.submit-button:hover {
+    background-color: var(--dark-orange);
+}
+
+.already {
+    font-size: 0.9em;
+    font-family: "Roboto Mono", monospace;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.sign-in {
+    color: var(--light-orange);
+}
+
+@media (min-width: 1200px) {
+    .title {
+        font-size: 1.8em;
+    }
+
+    .subtitle {
+        padding-top: 10px;
+        font-size: 1.2em;
+    }
+
+    .main-card {
+        max-width: 40vw;
+    }
+}

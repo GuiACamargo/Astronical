@@ -1,0 +1,38 @@
+<mat-card class="main-card">
+    <mat-card-header class="header">
+        <mat-card-title class="title">New Admin Account</mat-card-title>
+        <mat-card-subtitle class="subtitle">Create an account below:</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="content">
+        <form class="form" (ngSubmit)="onSubmit()" [formGroup]="registerAdminForm" #formDir="ngForm">
+            <mat-form-field appearance="outline" color="accent" class="input-field">
+                <mat-label>The Name</mat-label>
+                <input matInput placeholder="Neil Armstrong" type="text" required formControlName="name">
+                <mat-icon matSuffix>contacts</mat-icon>
+                <mat-error *ngIf="name.invalid">Name must have a value</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="accent" class="input-field">
+                <mat-label>The Email</mat-label>
+                <input matInput placeholder="neil.armstrong@email.com" required type="email" formControlName="email">
+                <mat-icon matSuffix>email</mat-icon>
+                <mat-error *ngIf="email.invalid">{{ getErrorMessageEmail() }}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="accent" class="input-field">
+                <mat-label>The CPF</mat-label>
+                <input matInput placeholder="000.000.000-00" type="text" required formControlName="cpf" mask="000.000.000-99" [dropSpecialCharacters]="false">
+                <mat-icon matSuffix>fingerprint</mat-icon>
+                <mat-error *ngIf="cpf.invalid">{{ getErrorMessageCpf() }}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="accent" class="input-field">
+                <mat-label>The Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" required placeholder="•••••••" formControlName="password">
+                <a mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </a>
+                <mat-error *ngIf="password.invalid">Password must have a value</mat-error>
+            </mat-form-field>
+            <button type="submit" mat-raised-button class="submit-button">Register</button>
+        </form>
+    </mat-card-content>
+</mat-card>

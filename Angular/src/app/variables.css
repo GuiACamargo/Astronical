@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Open+Sans&family=Roboto+Mono&display=swap");
+/* 
+font-family: 'Major Mono Display', monospace;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto Mono', monospace; 
+*/
+
+:root {
+    --dark-orange: #ff6d00;
+    --mediumdark-orange: #ff7900;
+    --medium-orange: #ff8500;
+    --mediumlight-orange: #ff9100;
+    --light-orange: #ff9e00;
+
+    --dark-purple: #240046;
+    --mediumdark-purple: #3c096c;
+    --medium-purple: #5a189a;
+    --mediumlight-purple: #7b2cbf;
+    --light-purple: #9d4edd;
+}

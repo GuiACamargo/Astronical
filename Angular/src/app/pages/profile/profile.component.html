@@ -1,0 +1,102 @@
+<mat-card class="main-card-profile">
+    <mat-card-header class="header-profile">
+        <mat-card-title class="title-profile">This is your profile <span class="astronical">Astronical</span>!</mat-card-title>
+        <mat-card-subtitle class="subtitle">Check your informations and update if needed!</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="content-profile">
+        <div class="name info">
+            <div class="wrapper">
+                <span>Your name:</span>
+                <span>{{ userName }}</span>
+            </div>
+        </div>
+        <div class="email info">
+            <div class="wrapper">
+                <span>Your email:</span>
+                <span>{{ userEmail }}</span>
+            </div>
+        </div>
+        <div class="cpf info">
+            <div class="wrapper">
+                <span>Your CPF:</span>
+                <span>{{ userCPF }}</span>
+            </div>
+        </div>
+    </mat-card-content>
+    <button mat-raised-button class="delete-user" (click)="delete()">delete Account</button>
+    <button mat-raised-button class="change" (click)="change()" *ngIf="!wantToChange">Want to change something?</button>
+    <div class="change-form" *ngIf="wantToChange">
+        <form class="form" (ngSubmit)="onSubmit()" [formGroup]="updateForm" #formDir="ngForm">
+            <span>leave blank what you don't want to change (password must be updated!, you can use your old one)!</span>
+            <mat-form-field appearance="outline" class="input-field" color="accent" style="width:50vw">
+                <mat-label>Want to change your name?</mat-label>
+                <input matInput placeholder="Laika" formControlName="name">
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="input-field" color="accent" style="width:50vw">
+                <mat-label>Want to change your email?</mat-label>
+                <input matInput placeholder="laika_cool_dog@email" formControlName="email">
+                <mat-icon matSuffix>email</mat-icon>
+                <mat-error *ngIf="email.invalid">Invalid Email</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="input-field" color="accent" style="width:50vw">
+                <mat-label>Want to change your CPF?</mat-label>
+                <input matInput placeholder="000.000.000-00" type="text" formControlName="cpf" mask="000.000.000-99"
+                    [dropSpecialCharacters]="false">
+                <mat-icon matSuffix>fingerprint</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="accent" class="input-field" style="width:50vw">
+                <mat-label>Your new Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" required placeholder="•••••••" formControlName="password">
+                <a mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </a>
+                <mat-error *ngIf="password.invalid">Password must have a value</mat-error>
+            </mat-form-field>
+            <button type="submit" mat-raised-button class="update-button">Update</button>
+        </form>
+    </div>
+</mat-card>
+<div *ngIf="hasPublis; else noPublis">
+    <div class="publi-container">
+        <mat-card class="main-card" [ngClass]="publi.id%2 || publi.id == 1 ? 'purple-card' : ''"
+            *ngFor="let publi of userPublis">
+            <span class="author">By: <span class="username">You</span></span>
+            <mat-card-header class="header">
+                <mat-card-title class="title">{{ publi.titulo }}</mat-card-title>
+                <mat-card-subtitle class="date">{{ publi.data | date: "dd/MM/yyyy, h:mm a" }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content class="content">
+                <p class="description">{{ publi.descricao }}</p>
+                <div class="actions">
+                    <div class="likes">
+                        <span class="pontuation">{{ publi.pontuacao }}</span>
+                    </div>
+                    <button mat-raised-button [matMenuTriggerFor]="menu" aria-label="menu" class="menu-button">
+                        Options
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                </div>
+                <mat-menu #menu="matMenu">
+                    <div class="menu">
+                        <button mat-raised-button (click)="openDialog(publi.titulo, publi.id)"
+                            class="delete-button">
+                            <mat-icon class="icon">highlight_off</mat-icon>
+                            <span class="menu-text">Delete</span>
+                        </button>
+                        <button mat-raised-button (click)="edit(publi.id)" class="edit-button">
+                            <mat-icon class="icon">edit</mat-icon>
+                            <span class="menu-text">Edit</span>
+                        </button>
+                    </div>
+                </mat-menu>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<ng-template #noPublis>
+    <mat-card class="noPublis-card">
+        <span class="noPublis">Sadly you have no posts, have one now! <a routerLink="/post/new">New Post</a></span>
+    </mat-card>
+</ng-template>

@@ -1,0 +1,57 @@
+<mat-card class="card">
+    <div class="wrapper">
+        <mat-card-header class="text">
+            <mat-card-title class="title">Welcome to APOD</mat-card-title>
+            <mat-card-subtitle class="subtitle">Astronomy Pictures of the Day by NASA</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="content">
+            <form (ngSubmit)="onSubmit()" [formGroup]="dateForm" class="form">
+                <mat-form-field class="date" appearance="outline" color="accent">
+                    <mat-label>Search a Picture by Date</mat-label>
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="date"/>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <button mat-raised-button type="submit" class="search">
+                    Search
+                </button>
+            </form>
+            <button mat-raised-button (click)="picOfDay()" class="day">
+                Picture of the day
+            </button>
+            <div *ngIf="error" class="error">
+                <span class="error-text"><span class="error-title">Error: </span>{{ error }}
+                    <del class="yet">yet</del></span>
+            </div>
+        </mat-card-content>
+    </div>
+    <mat-progress-bar mode="indeterminate" *ngIf="loading" class="loading"></mat-progress-bar>
+</mat-card>
+
+<mat-card class="picture" *ngIf="present">
+    <mat-card-header>
+        <mat-card-title class="title-picture" *ngIf="title">Title: <span class="title-name">{{ title }}</span>
+        </mat-card-title>
+        <mat-card-subtitle class="subtitle-picture">
+            <span *ngIf="copyright">Copyright: {{ copyright }}</span>
+            <br />
+            <span *ngIf="date">Date: {{ date | date: "MM/dd/yyyy" }}</span>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="content-picture">
+        <span class="explanation" *ngIf="explanation">
+            {{ explanation }}
+        </span>
+        <a href="{{ hd_url }}" class="image-url" target="_blank">
+            <img class="image-url" src="{{ hd_url }}" alt="APOD Image" *ngIf="hd_url; else link" />
+        </a>
+        <ng-template #link>
+            <div *ngIf="url" class="link">
+                <br /><br />
+                <a href="{{ url }}">Media Link</a>
+            </div>
+        </ng-template>
+    </mat-card-content>
+</mat-card>

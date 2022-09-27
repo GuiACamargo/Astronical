@@ -1,0 +1,26 @@
+<mat-card class="main-card">
+    <mat-card-content class="content">
+        <form class="form" (ngSubmit)="onSubmit()" [formGroup]="postForm" #formDir="ngForm">
+            <input type="hidden" formControlName="postId">
+            <input type="hidden" formControlName="userId">
+            <mat-form-field appearance="fill" class="input-field" color="accent" style="width:50vw">
+                <mat-label>{{ titleLabel }}</mat-label>
+                <input matInput placeholder="The Moon Shines" maxlength="200" #inputTitle formControlName="title">
+                <mat-icon matSuffix>brightness_2</mat-icon>
+                <mat-hint>Max 200 characters: {{inputTitle.value?.length || 0}}/200</mat-hint>
+                <mat-error *ngIf="title.invalid">Title must have a value</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="input-field" color="accent" style="width:50vw">
+                <mat-label>{{ descriptionLabel }}</mat-label>
+                <textarea matInput formControlName="description" maxlength="3500" #textareaDescription 
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="15"></textarea>
+                <mat-hint>Max 3500 characters: {{textareaDescription.value?.length || 0}}/3500</mat-hint>
+                <mat-error *ngIf="description.invalid">Description must have a value</mat-error>
+            </mat-form-field>
+            <button type="submit" mat-raised-button class="submit-button">{{ buttonText }}</button>
+        </form>
+    </mat-card-content>
+</mat-card>

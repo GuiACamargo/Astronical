@@ -1,0 +1,163 @@
+@import url("../variables.css");
+/* 
+font-family: 'Major Mono Display', monospace;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto Mono', monospace; 
+*/
+
+.main-card {
+    display: flex !important;
+    flex-direction: column;
+    background-color: transparent;
+    box-shadow: none;
+    margin: auto;
+}
+
+.title,
+.subtitle {
+    text-align: end;
+    font-family: "Roboto Mono", monospace;
+}
+
+.title {
+    padding-top: 20px;
+    color: var(--mediumlight-orange);
+    font-size: 2.2em;
+}
+
+.subtitle {
+    padding-top: 30px;
+    font-size: 1.5em;
+    line-height: 25px;
+}
+
+.subtitle span {
+    color: var(--light-orange);
+}
+
+@keyframes glide {
+    from {
+        bottom: 0px;
+        right: -10px;
+        left: -10px;
+        top: 0px;
+    }
+
+    to {
+        bottom: 5px;
+        right: 15px;
+        left: 15px;
+        top: 5px;
+    }
+}
+
+.image {
+    display: block;
+    position: relative;
+    animation: glide 2s ease-in-out alternate infinite;
+    height: auto;
+    width: auto;
+    margin: auto;
+    max-width: 40vw;
+}
+
+.faq-card {
+    background: rgb(90, 24, 154, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px auto 20px auto;
+    max-width: 80vw;
+}
+
+.faq-content,
+.faq-header {
+    font-family: "Roboto Mono", monospace;
+}
+
+.faq-header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.space-break {
+    padding: 2px;
+}
+
+.accordion-panel {
+    background-color: #f770a8;
+}
+
+.accordion-header {
+    border-bottom: 1px solid var(--dark-purple);
+    background-color: #be4c7a;
+}
+
+.accordion-title {
+    padding: 10px 0 10px 0;
+}
+
+.linkedin {
+    font-weight: bold;
+    color: var(--mediumdark-purple);
+    text-decoration: none;
+}
+
+.faq-subtitle {
+    color: var(--light-purple);
+}
+
+@media (min-width: 992px) {
+    .main-card {
+        max-width: 80vw;
+        flex-direction: row-reverse;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+    }
+
+    .image {
+        max-width: 25vw;
+    }
+
+    .faq-title {
+        font-size: 1.8em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .main-card {
+        max-width: 64vw;
+    }
+
+    .image {
+        max-width: 18vw;
+    }
+
+    .title {
+        font-size: 4em;
+    }
+
+    .subtitle {
+        padding-left: 200px;
+        padding-top: 80px;
+        font-size: 1.7em;
+        line-height: 50px;
+    }
+
+    .faq-card {
+        max-width: 64vw;
+    }
+
+    .accordion-title {
+        padding: 20px 0 20px 0;
+    }
+
+    .accordion-panel {
+        font-size: 1.15em;
+    }
+}

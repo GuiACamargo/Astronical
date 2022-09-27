@@ -1,0 +1,267 @@
+@import url("../variables.css");
+/* 
+font-family: 'Major Mono Display', monospace;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto Mono', monospace; 
+*/
+
+@keyframes glide {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+
+    to {
+        left: 0px;
+        top: 15px;
+    }
+}
+
+.astronaut {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.astronaut-falling {
+    position: relative;
+    animation: glide 2s ease-in-out alternate infinite;
+}
+
+.astronaut-gliding {
+    position: relative;
+    animation: glide 3s ease-in-out alternate infinite;
+}
+
+.top-images {
+    margin-top: 20px;
+    justify-content: center;
+    display: flex;
+}
+
+.top-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.astronaut {
+    max-width: 45vw;
+    height: auto;
+    width: 100%;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.create {
+    font-family: "Major Mono Display", monospace;
+    font-weight: bold;
+    margin: auto;
+    background-color: var(--mediumlight-purple);
+    margin-bottom: 30px;
+}
+
+.create:hover {
+    background-color: var(--dark-purple);
+}
+
+.all-publi-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.all-publi-title {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-family: "Major Mono Display", monospace;
+    font-size: 1.6em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sharing {
+    color: var(--mediumlight-purple);
+}
+
+.publi-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.paginator {
+    font-size: 1em;
+    font-family: "Roboto Mono", monospace;
+    background-color: rgb(66, 66, 66, 0.7);
+    border-radius: 10px;
+    width: 71vw;
+    margin: -20px auto 20px auto;
+}
+
+.main-card {
+    background-image: linear-gradient(
+        to right top,
+        #f770a8,
+        #da5e91,
+        #be4c7a,
+        #a23a65,
+        #872950
+    );
+    margin: auto auto 30px auto;
+    width: 70vw;
+}
+
+.purple-card {
+    background-image: linear-gradient(
+        to right top,
+        #240046,
+        #380762,
+        #4e1380,
+        #641f9f,
+        #7b2cbf
+    );
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.title,
+.description {
+    line-height: 25px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.pontuation {
+    font-weight: bold;
+    background-color: var(--mediumlight-purple);
+    border-radius: 200px;
+    padding: 8px;
+    font-family: "Major Mono Display", monospace;
+    margin-right: 10px;
+}
+
+.like-button {
+    font-weight: bold;
+    font-family: "Major Mono Display", monospace;
+    background-color: var(--mediumlight-purple);
+}
+
+.like-button:hover {
+    background-color: var(--dark-purple);
+}
+
+.header,
+.description {
+    font-family: "Roboto Mono", monospace;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.actions {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.menu-button {
+    font-family: "Major Mono Display", monospace;
+    background-color: #de6002;
+    display: inline;
+}
+
+.menu-button:hover {
+    background-color: var(--light-orange);
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.menu-text {
+    font-family: "Roboto Mono", monospace;
+}
+
+.icon {
+    padding-right: 5px;
+}
+
+.noPublis {
+    color: var(--dark-orange);
+    margin: auto;
+    font-family: "Major Mono Display", monospace;
+    font-family: 10em;
+    font-weight: bold;
+}
+
+.delete-button {
+    background-color: rgb(150, 3, 3);
+    margin-bottom: 10px;
+}
+
+.delete-button:hover {
+    background-color: rgb(97, 3, 3);
+}
+
+.edit-button {
+    background-color: var(--dark-orange);
+}
+
+.edit-button:hover {
+    background-color: var(--light-orange);
+}
+
+.delete-button,
+.edit-button {
+    margin: 5px;
+}
+
+.form-search {
+    margin-bottom: 30px;
+    width: 90%;
+}
+
+.search {
+    max-width: 80vw;
+    margin: auto;
+    display: inline;
+}
+
+.author {
+    font-size: 0.9em;
+    font-family: "Roboto Mono", monospace;
+    color: rgb(209, 209, 209);
+}
+
+.username {
+    color: rgb(219, 218, 218);
+}
+
+@media (min-width: 992px) {
+    .astronaut {
+        max-width: 30vw;
+    }
+}
+
+@media (min-width: 1200px) {
+    .astronaut {
+        max-width: 25vw;
+    }
+}

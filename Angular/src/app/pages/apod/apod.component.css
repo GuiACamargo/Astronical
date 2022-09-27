@@ -1,0 +1,215 @@
+@import url("../variables.css");
+/* 
+font-family: 'Major Mono Display', monospace;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto Mono', monospace; 
+*/
+
+.card {
+    background-image: linear-gradient(
+        to right top,
+        #240046,
+        #31035a,
+        #3e096e,
+        #4c1084,
+        #5a189a
+    );
+    border-radius: 30px;
+    margin: 30px auto 0 auto;
+    display: flex;
+    max-width: 70vw;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search {
+    color: black;
+    background-color: var(--light-orange);
+    transition: 0.5s;
+}
+
+.search:hover {
+    background-color: var(--medium-orange);
+}
+
+.day {
+    color: black;
+    background-color: var(--mediumdark-orange);
+    transition: 0.5s;
+}
+
+.day:hover {
+    background-color: var(--dark-orange);
+}
+
+.content {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title,
+.subtitle {
+    font-family: "Roboto Mono", monospace;
+    text-align: center;
+}
+
+.title {
+    font-size: 1.8em;
+}
+
+.subtitle {
+    padding-top: 10px;
+    font-size: 1.2em;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.date {
+    font-family: "Roboto Mono", monospace;
+    margin: auto;
+}
+
+.search {
+    font-family: "Roboto Mono", monospace;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.day {
+    font-family: "Roboto Mono", monospace;
+}
+
+.picture {
+    background-image: linear-gradient(
+        to right bottom,
+        #240046,
+        #31035a,
+        #3e096e,
+        #4c1084,
+        #5a189a
+    );
+    border-radius: 30px;
+    margin: 30px auto 30px auto;
+    display: flex;
+    max-width: 75vw;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-picture,
+.subtitle-picture {
+    font-family: "Roboto Mono", monospace;
+    text-align: center;
+}
+
+.title-picture {
+    padding-top: 20px;
+    font-size: 1.7em;
+    line-height: 31px;
+}
+
+.title-name {
+    color: var(--dark-orange);
+}
+
+.subtitle-picture {
+    font-size: 1.1em;
+}
+
+.explanation {
+    margin-top: 20px;
+    font-family: "Roboto Mono", monospace;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.content-picture {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.image-url {
+    border-radius: 10px;
+    align-self: center;
+    max-width: 80vw;
+    height: auto;
+    width: 100%;
+    margin-top: 25px;
+}
+
+a {
+    font-family: "Roboto Mono", monospace;
+    font-size: 1.2em;
+    color: #f2816f;
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error {
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 20px;
+    font-family: "Roboto Mono", monospace;
+}
+
+.yet {
+    font-size: 1.3em;
+    color: red;
+    font-family: "Major Mono Display", monospace;
+}
+
+.loading {
+    border-radius: 20px;
+    max-width: 32vw;
+}
+
+.error-title {
+    color: var(--mediumlight-orange);
+}
+
+@media (min-width: 1200px) {
+    .title-picture {
+        font-size: 2.6em;
+    }
+
+    .card {
+        max-width: 35vw;
+    }
+
+    .picture {
+        max-width: 60vw;
+    }
+
+    .image-url {
+        max-width: 30vw;
+        height: auto;
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .subtitle-picture {
+        padding-top: 10px;
+    }
+}

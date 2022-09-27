@@ -1,0 +1,16 @@
+@import url("../variables.css");
+/* 
+font-family: 'Major Mono Display', monospace;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto Mono', monospace; 
+*/
+
+h2 {
+    padding-top: 20px;
+    font-family: "Major Mono Display", monospace;
+    text-align: center;
+}
+
+span {
+    color: var(--light-orange);
+}

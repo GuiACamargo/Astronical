@@ -1,0 +1,66 @@
+<div class="all-publi-container">
+    <div class="top">
+        <div class="top-images">
+            <img class="astronaut astronaut-gliding"
+                src="https://i.pinimg.com/originals/a0/26/1b/a0261b885cfba5a65c675c33327acf5a.png"
+                alt="Floating astronaut">
+            <img class="astronaut astronaut-falling"
+                src="https://images.vexels.com/media/users/3/152641/isolated/preview/2b3d63661f0d7fe62c36168604985f26-space-cosmonaut-cartoon.png"
+                alt="Falling astronaut">
+        </div>
+        <div class="top-content">
+            <span class="all-publi-title">See what people are <span class="sharing">sharing</span>!</span>
+            <a mat-raised-button routerLink="/post/new" class="create">Create a new Post!</a>
+            <form class="form-search">
+                <mat-form-field class="search" appearance="outline" color="accent">
+                    <mat-label>Search by Post Title</mat-label>
+                    <input matInput placeholder="The Moon Shines" type="text" (input)="search($event)">
+                </mat-form-field>
+            </form>
+        </div>
+    </div>
+    <div *ngIf="hasPublis; else noPublis">
+        <div class="publi-container">
+            <mat-card class="main-card" [ngClass]="publi.id%2 || publi.id == 1 ? 'purple-card' : ''"
+                *ngFor="let publi of filteredPublis">
+                <span class="author">By: <span class="username">{{ publi.usuario.nome }}</span></span>
+                <mat-card-header class="header">
+                    <mat-card-title class="title">{{ publi.titulo }}</mat-card-title>
+                    <mat-card-subtitle class="date">{{ publi.data | date: "dd/MM/yyyy, h:mm a" }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content class="content">
+                    <p class="description">{{ publi.descricao }}</p>
+                    <div class="actions">
+                        <div class="likes">
+                            <span class="pontuation">{{ publi.pontuacao }}</span>
+                            <button mat-raised-button class="like-button" (click)="like(publi)" *ngIf="!sameUser(publi)">Like</button>
+                        </div>
+                        <button mat-raised-button [matMenuTriggerFor]="menu" aria-label="menu" class="menu-button"
+                            *ngIf="sameUser(publi) || admin(publi)">
+                            Options
+                            <mat-icon>menu</mat-icon>
+                        </button>
+                    </div>
+                    <mat-menu #menu="matMenu">
+                        <div class="menu">
+                            <button mat-raised-button (click)="openDialog(publi.titulo, publi.id)" *ngIf="admin(publi) || sameUser(publi)"
+                                class="delete-button">
+                                <mat-icon class="icon">highlight_off</mat-icon>
+                                <span class="menu-text">Delete</span>
+                            </button>
+                            <button mat-raised-button (click)="edit(publi.id)" class="edit-button" *ngIf="!admin(publi)">
+                                <mat-icon class="icon">edit</mat-icon>
+                                <span class="menu-text">Edit</span>
+                            </button>
+                        </div>
+                    </mat-menu>
+                </mat-card-content>
+            </mat-card>
+            <mat-paginator [length]="10 * numberOfPages" [pageSize]="10" (page)="paginator($event)" aria-label="Select page" class="paginator">
+            </mat-paginator>
+        </div>
+    </div>
+    <ng-template #noPublis>
+        <span class="noPublis">Sadly there are no posts, be the first one!</span>
+    </ng-template>
+</div>

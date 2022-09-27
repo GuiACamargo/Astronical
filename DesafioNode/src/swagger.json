@@ -1,0 +1,526 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "API v1 Astronical",
+        "version": "1.0.0"
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    },
+
+    "paths": {
+        "/login": {
+            "post": {
+                "description": "Login Usuario",
+                "tags": [
+                    "Login"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "senha": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "retorna token jwt"
+                    },
+                    "404": {
+                        "description": "Email ou senha inválidos"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+
+        "/usuario": {
+            "post": {
+                "description": "Cadastra um novo Usuario",
+                "tags": [
+                    "Usuario"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "nome": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "cpf": {
+                                        "type": "string"
+                                    },
+                                    "senha": {
+                                        "type": "string"
+                                    },
+                                    "cargo": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuario Criado"
+                    },
+                    "400": {
+                        "description": "CPF já cadastrado ou Email já cadastrado"
+                    },
+                    "500": {
+                        "description": "Internal Sever Error"
+                    }
+                }
+            },
+            "get": {
+                "description": "Obtém todos os Usuários",
+                "tags": [
+                    "Usuario"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Sever Error"
+                    }
+                }
+            }
+        },
+
+        "/usuario/{email}": {
+            "get": {
+                "description": "Obtem o usario pelo email",
+                "tags": [
+                    "Usuario"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "email",
+                        "required": true,
+                        "description": "email do usuário",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Usuário não existe"
+                    },
+                    "500": {
+                        "description": "Internal Sever Error"
+                    }
+                }
+            }
+        },
+
+        "/usuario/{id}": {
+            "get": {
+                "description": "Obtem o usario pela Id",
+                "tags": [
+                    "Usuario"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "id do usuário",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Usuário não existe"
+                    },
+                    "500": {
+                        "description": "Internal Sever Error"
+                    }
+                }
+            },
+            "put": {
+                "description": "Edita o Usuario existente pelo ID",
+                "tags": [
+                    "Usuario"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "id do usuário",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "nome": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "cpf": {
+                                        "type": "string"
+                                    },
+                                    "senha": {
+                                        "type": "string"
+                                    },
+                                    "cargo": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "404": {
+                        "description": "Usuário não existe"
+                    },
+                    "200": {
+                        "description": "Usuario atualizado"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error'"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Deleta uma Usuario existente pelo ID",
+                "tags": [
+                    "Usuario"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "id do usuário",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Usuario não existe"
+                    },
+                    "200": {
+                        "description": "id: (?) deletado com sucesso"
+                    }
+                }
+            }
+        },
+
+        "/publicacao": {
+            "post": {
+                "description": "Cadastra uma nova publicacao",
+                "tags": [
+                    "Publicacao"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "titulo": {
+                                        "type": "string"
+                                    },
+                                    "descricao": {
+                                        "type": "string"
+                                    },
+                                    "pontuacao": {
+                                        "type": "number"
+                                    },
+                                    "usuarioId": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuario Criado"
+                    },
+                    "400": {
+                        "description": "CPF já cadastrado ou Email já cadastrado"
+                    },
+                    "500": {
+                        "description": "Internal Sever Error"
+                    }
+                }
+            },
+            "get": {
+                "description": "Obtem todas publicações",
+                "tags": [
+                    "Publicacao"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "500": {
+                        "description": "Internal Sever Error"
+                    }
+                }
+            }
+        },
+
+        "/publicacao/{id}": {
+            "get": {
+                "description": "Obtem a publicacao pela Id",
+                "tags": [
+                    "Publicacao"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "id da publicação",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Publicação não existe"
+                    },
+                    "500": {
+                        "description": "Internal Sever Error"
+                    }
+                }
+            },
+            "put": {
+                "description": "Edita a publicacao existente pelo ID",
+                "tags": [
+                    "Publicacao"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "id da publicacao",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "titulo": {
+                                        "type": "string"
+                                    },
+                                    "descricao": {
+                                        "type": "string"
+                                    },
+                                    "pontuacao": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "404": {
+                        "description": "Publicacao não existe"
+                    },
+                    "200": {
+                        "description": "Publicacao atualizada"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error'"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Deleta uma Publicacao existente pelo ID",
+                "tags": [
+                    "Publicacao"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "id da Publicacao",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Publicacao não existe"
+                    },
+                    "200": {
+                        "description": "id: (?) deletado com sucesso"
+                    },
+                    "500": {
+                        "description": "Internal Server Error'"
+                    }
+                }
+            }
+        },
+        "/publicacao/usuario/{id}": {
+            "get": {
+                "description": "Obtem as publicacoes pela Id do usuario",
+                "tags": [
+                    "Publicacao"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "id do Usuario",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Usuário não existe"
+                    },
+                    "500": {
+                        "description": "Internal Sever Error"
+                    }
+                }
+            }
+        }
+    }
+}

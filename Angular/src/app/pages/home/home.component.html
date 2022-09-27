@@ -1,0 +1,39 @@
+<mat-card class="main-card">
+    <mat-card-header class="header">
+        <mat-card-title class="title">Astronical!</mat-card-title>
+        <mat-card-subtitle class="subtitle">
+            The revolutionary <span>Astronomic</span> Social Media for everyone!
+        </mat-card-subtitle>
+    </mat-card-header>
+    <img class="image" mat-card-image src="https://i.pinimg.com/originals/a0/26/1b/a0261b885cfba5a65c675c33327acf5a.png"
+        alt="" />
+</mat-card>
+
+<mat-card class="option-card">
+    <mat-card-header class="option-header">
+        <mat-card-title class="option-title">Navigate through<br />
+            our options!:)</mat-card-title>
+        <mat-card-subtitle class="option-subtitle">Chose one below:</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="option-content">
+        <div class="option" *ngIf="authService.isLoggedOut | async">
+            <div class="option-name">Create Account</div>
+            <div class="option-description">
+                Create an account to have access to all services
+            </div>
+            <a mat-raised-button routerLink="/register" class="button">Create</a>
+        </div>
+        <div class="option">
+            <div class="option-name">APOD</div>
+            <div class="option-description">
+                See the Astronomic Picture of The Day by NASA
+            </div>
+            <a mat-raised-button routerLink="/apod" class="button">Navigate</a>
+        </div>
+        <div class="option">
+            <div class="option-name">About-us</div>
+            <div class="option-description">See who we are!</div>
+            <a mat-raised-button routerLink="/about-us" class="button">Navigate</a>
+        </div>
+    </mat-card-content>
+</mat-card>

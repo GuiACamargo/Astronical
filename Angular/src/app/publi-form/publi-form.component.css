@@ -1,0 +1,76 @@
+@import url("../variables.css");
+/* 
+font-family: 'Major Mono Display', monospace;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto Mono', monospace; 
+*/
+
+.main-card {
+    background-image: linear-gradient(
+        to left top,
+        #240046,
+        #31035a,
+        #3e096e,
+        #4c1084,
+        #5a189a
+    );
+    max-width: 80%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field {
+    font-family: "Roboto Mono", monospace;
+    margin: auto;
+    padding-top: 20px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.file-input {
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.file-button {
+    margin-top: 8px;
+    margin-bottom: 5px;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    background-color: var(--light-orange);
+    color: black;
+    border-radius: 5px;
+}
+
+.file-button:hover {
+    background-color: var(--dark-orange);
+}
+
+.submit-button {
+    margin: 20px auto;
+    padding-left: 15vw;
+    padding-right: 15vw;
+    font-weight: bold;
+    color: black;
+    font-family: "Major Mono Display", monospace;
+    background-color: #f770a8;
+}
+
+.submit-button:hover {
+    background-color: #be4c7a;
+}
+
+@media (min-width: 992px) {
+}

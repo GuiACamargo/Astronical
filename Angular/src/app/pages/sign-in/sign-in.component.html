@@ -1,0 +1,27 @@
+<mat-card class="main-card">
+    <mat-card-header class="header">
+        <mat-card-title class="title">Welcome Back!</mat-card-title>
+        <mat-card-subtitle class="subtitle">Fellow Astronical!</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="content">
+        <form class="form" (ngSubmit)="onSubmit()" [formGroup]="signInForm" #formDir="ngForm">
+            <mat-form-field appearance="outline" color="accent" class="input-field">
+                <mat-label>Your Email</mat-label>
+                <input matInput placeholder="neil.armstrong@email.com" required type="email" formControlName="email">
+                <mat-icon matSuffix>email</mat-icon>
+                <mat-error *ngIf="email.invalid">{{ getErrorMessageEmail() }}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="accent" class="input-field">
+                <mat-label>Your Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" required placeholder="•••••••" formControlName="password">
+                <a mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </a>
+                <mat-error *ngIf="password.invalid">Password must have a value</mat-error>
+            </mat-form-field>
+            <button type="submit" mat-raised-button class="submit-button">Sign-in</button>
+            <span class="new">New Here? <a routerLink="/register" class="register">Register</a></span>
+        </form>
+    </mat-card-content>
+</mat-card>

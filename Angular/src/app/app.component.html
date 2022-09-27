@@ -1,0 +1,153 @@
+<mat-sidenav-container class="all-wrap" fullscreen>
+    <mat-sidenav #sidenav>
+        <mat-nav-list class="list">
+            <a mat-button (click)="sidenav.toggle()" class="close">
+                <mat-icon>close</mat-icon>
+                Close
+            </a>
+            <a mat-button (click)="sidenav.toggle()" class="apod-op" routerLink="/apod">
+                <mat-icon class="align-icon">cloud</mat-icon>
+                <span>APOD</span>
+            </a>
+            <a mat-button (click)="sidenav.toggle()" class="about-us-op" routerLink="/about-us">
+                <mat-icon class="align-icon">people</mat-icon>
+                <span>About Us</span>
+            </a>
+            <a mat-button (click)="sidenav.toggle()" class="new-post-op" routerLink="/post/new"
+                *ngIf="authService.isLoggedIn | async">
+                <mat-icon class="align-icon">note_add</mat-icon>
+                <span>New Post</span>
+            </a>
+            <a mat-button (click)="sidenav.toggle()" class="all-post-op" routerLink="/post/all"
+                *ngIf="authService.isLoggedIn | async">
+                <mat-icon class="align-icon">dashboard</mat-icon>
+                <span>All Posts</span>
+            </a>
+            <a mat-button (click)="sidenav.toggle()" class="register-op" routerLink="/register"
+                *ngIf="authService.isLoggedOut | async">
+                <mat-icon class="align-icon">add</mat-icon>
+                <span>Register</span>
+            </a>
+            <a mat-button (click)="sidenav.toggle()" class="sign-in-op" routerLink="/sign-in"
+                *ngIf="authService.isLoggedOut | async">
+                <mat-icon class="align-icon">account_circle</mat-icon>
+                <span>Sign in</span>
+            </a>
+            <button mat-button class="admin-op" [matMenuTriggerFor]="menuAdmin" *ngIf="tokenRole == 'admin'">
+                <mat-icon class="align-icon">lock_open</mat-icon>
+                <span>Admin</span>
+            </button>
+            <mat-menu #menuAdmin="matMenu">
+                <div class="menu">
+                    <button mat-raised-button class="all-users-button" routerLink="/admin/allusers">
+                        <mat-icon class="icon">group</mat-icon>
+                        <span class="menu-text">See All Users</span>
+                    </button>
+                    <button mat-raised-button routerLink="/admin/new" class="create-admin-button">
+                        <mat-icon class="icon">person_add</mat-icon>
+                        <span class="menu-text">Create an Admin</span>
+                    </button>
+                </div>
+            </mat-menu>
+            <button mat-button [matMenuTriggerFor]="menu_op" class="options-op" *ngIf="authService.isLoggedIn | async">
+                <mat-icon class="align-icon">settings</mat-icon>
+                <span>Options ({{ email }})</span>
+            </button>
+            <mat-menu #menu_op="matMenu">
+                <div class="menu">
+                    <button mat-raised-button class="profile-button">
+                        <mat-icon class="icon">perm_identity</mat-icon>
+                        <span class="menu-text">Profile</span>
+                    </button>
+                    <button mat-raised-button (click)="logout()" class="logout-button">
+                        <mat-icon class="icon">keyboard_return</mat-icon>
+                        <span class="menu-text">Logout</span>
+                    </button>
+                </div>
+            </mat-menu>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <div class="page-wrap">
+        <header>
+            <mat-toolbar class="banner">
+                <mat-toolbar-row>
+                    <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-md>
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                    <a mat-button class="title" routerLink="/">Astronical</a>
+                    <span class="signs" fxHide.lt-xl>
+                        *~~Z|^]~.^*_-Y[}X_~~.W
+                    </span>
+                    <span class="menu-spacer"></span>
+                    <div fxShow="true" fxHide.lt-lg>
+                        <a mat-button class="apod" routerLink="/apod">
+                            <mat-icon class="align-icon">cloud</mat-icon>
+                            <span>APOD</span>
+                        </a>
+                        <a mat-button class="about-us" routerLink="/about-us">
+                            <mat-icon class="align-icon">people</mat-icon>
+                            <span>About Us</span>
+                        </a>
+                        <a mat-button class="new-post" routerLink="/post/new" *ngIf="authService.isLoggedIn | async">
+                            <mat-icon class="align-icon">note_add</mat-icon>
+                            <span>New Post</span>
+                        </a>
+                        <a mat-button class="all-post" routerLink="/post/all" *ngIf="authService.isLoggedIn | async">
+                            <mat-icon class="align-icon">dashboard</mat-icon>
+                            <span>All Posts</span>
+                        </a>
+                        <a mat-button class="create-account" routerLink="/register"
+                            *ngIf="authService.isLoggedOut | async">
+                            <mat-icon class="align-icon">add</mat-icon>
+                            <span>Register</span>
+                        </a>
+                        <a mat-button class="sign-in" routerLink="/sign-in" *ngIf="authService.isLoggedOut | async">
+                            <mat-icon class="align-icon sign-in-icon">account_circle</mat-icon>
+                            <span class="sign-in-text">Sign in</span>
+                        </a>
+                        <button mat-button class="admin" [matMenuTriggerFor]="menuAdmin" *ngIf="tokenRole == 'admin'">
+                            <mat-icon class="align-icon admin-icon">lock_open</mat-icon>
+                            <span class="admin-text">Admin</span>
+                        </button>
+                        <mat-menu #menuAdmin="matMenu">
+                            <div class="menu">
+                                <button mat-raised-button class="all-users-button" routerLink="/admin/allusers">
+                                    <mat-icon class="icon align-icon">group</mat-icon>
+                                    <span class="menu-text">See All Users</span>
+                                </button>
+                                <button mat-raised-button routerLink="/admin/new" class="create-admin-button">
+                                    <mat-icon class="icon align-icon">person_add</mat-icon>
+                                    <span class="menu-text">Create an Admin</span>
+                                </button>
+                            </div>
+                        </mat-menu>
+                        <button mat-button class="options" [matMenuTriggerFor]="menu"
+                            *ngIf="authService.isLoggedIn | async">
+                            <mat-icon class="align-icon options-icon">settings</mat-icon>
+                            <span class="options-text">Options ({{ email }})</span>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <div class="menu">
+                                <button mat-raised-button class="profile-button" (click)="profile()">
+                                    <mat-icon class="icon align-icon">perm_identity</mat-icon>
+                                    <span class="menu-text">Profile</span>
+                                </button>
+                                <button mat-raised-button (click)="logout()" class="logout-button">
+                                    <mat-icon class="icon align-icon">keyboard_return</mat-icon>
+                                    <span class="menu-text">Logout</span>
+                                </button>
+                            </div>
+                        </mat-menu>
+                    </div>
+                </mat-toolbar-row>
+            </mat-toolbar>
+        </header>
+        <main fxFlexFill class="content">
+            <router-outlet></router-outlet>
+        </main>
+        <footer>
+            <app-footer></app-footer>
+        </footer>
+    </div>
+</mat-sidenav-container>

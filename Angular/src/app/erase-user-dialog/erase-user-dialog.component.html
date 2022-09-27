@@ -1,0 +1,11 @@
+<h1 mat-dialog-title class="title">Are you sure you want to delete <span>{{ data.email }}</span>?</h1>
+<div mat-dialog-content class="content">This action is irreversible</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="delete(data.id)" class="button">
+        <mat-icon>highlight_off</mat-icon>
+        I'm sure, delete
+    </button>
+    <button mat-button mat-dialog-close class="cancel">
+        Cancel
+    </button>
+</div>
