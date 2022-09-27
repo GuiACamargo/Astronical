@@ -45,6 +45,19 @@ iniciando assim o servidor do Back-end, permitindo a execução do projeto compl
 
 
 ## Start no Projeto Back-End
+Crie um arquivo .env no root do projeto back-end com as seguintes configurações:
+```
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=seu_nome_de_user_do_mysql_geralmente_root
+DB_PASS="sua_senha_do_usuário_do_mysql"
+DB_NAME=api_rest_typescript_desafio
+
+PORT=3000
+
+JWT_PASS =EURVGeY/OqxjdW5iGum2CKRN1O7jtLC.dTpbQeiwA27AE
+```
+e também execute esses comandos:
 ```
 npm install
 
