@@ -6,6 +6,8 @@ de postagens relacionadas a **_Astronomia_**.
 O projeto foi realizado principalmente com **_Angular, Node.js e MySQL_**, junto com outras diversas
 tecnologias listadas que auxiliaram a atingir o nosso objetivo
 
+Vídeo do Projeto 📽: https://bit.ly/3SEzDis
+
 ## Features:
 
 Na parte do **Front-end** o projeto conta com **validação de CPF e utilização de mask** no mesmo, salvamento de
